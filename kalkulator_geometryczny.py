@@ -10,84 +10,132 @@ print("7. Obwód prostokąta")
 print("8. Obwód równoległoboku")
 print("9. Obwód trapezu")
 print("10. Obwód trójkąta")
-print("11. Objętość sześcianu")
-print("12. Objętość prostopadłościanu")
-print("13. Pole powierzchni sześcianu")
-print("14. Pole powierzchni prostopadłościanu")
+print("11. Obwód trójkąta równobocznego")
+print("12. Objętość sześcianu")
+print("13. Objętość prostopadłościanu")
+print("14. Objętość graniastosłupa")
+print("15. Objętość ostrosłupa")
+print("16. Pole powierzchni sześcianu")
+print("17. Pole powierzchni prostopadłościanu")
+print("18. Pole powierzchni graniastosłupa")
+print("19. Pole powierzchni ostrosłupa")
 
-choice = input("Podaj numer opcji: ")
+choice = int(input("Podaj numer opcji: "))
 
-if choice == "1":
+if choice == 1:
     a = float(input("Podaj bok kwadratu: "))
-    print("Pole kwadratu wynosi:", a * a)
+    pole_kwadratu = a * a
+    print("Pole kwadratu wynosi:", pole_kwadratu)
 
-elif choice == "2":
+elif choice == 2:
     a = float(input("Podaj pierwszy bok prostokąta: "))
     b = float(input("Podaj drugi bok prostokąta: "))
-    print("Pole prostokąta wynosi:", a * b)
+    pole_prostokata = a * b
+    print("Pole prostokąta wynosi:", pole_prostokata)
 
-elif choice == "3":
+elif choice == 3:
     a = float(input("Podaj podstawę równoległoboku: "))
     h = float(input("Podaj wysokość równoległoboku: "))
-    print("Pole równoległoboku wynosi:", a * h)
+    pole_rownoleglogu = a * h
+    print("Pole równoległoboku wynosi:", pole_rownoleglogu)
 
-elif choice == "4":
+elif choice == 4:
     a = float(input("Podaj długość pierwszej podstawy trapezu: "))
     b = float(input("Podaj długość drugiej podstawy trapezu: "))
     h = float(input("Podaj wysokość trapezu: "))
-    print("Pole trapezu wynosi:", (a + b) * h / 2)
+    pole_trapezu = (a + b) * h / 2
+    print("Pole trapezu wynosi:", pole_trapezu)
 
-elif choice == "5":
+elif choice == 5:
     a = float(input("Podaj długość podstawy trójkąta: "))
     h = float(input("Podaj wysokość trójkąta: "))
-    print("Pole trójkąta wynosi:", (a * h) / 2)
+    pole_trojkata = (a * h) / 2
+    print("Pole trójkąta wynosi:", pole_trojkata)
 
-elif choice == "6":
+elif choice == 6:
     a = float(input("Podaj bok kwadratu: "))
-    print("Obwód kwadratu wynosi:", 4 * a)
+    obwod_kwadratu = 4 * a
+    print("Obwód kwadratu wynosi:", obwod_kwadratu)
 
-elif choice == "7":
+elif choice == 7:
     a = float(input("Podaj pierwszy bok prostokąta: "))
     b = float(input("Podaj drugi bok prostokąta: "))
-    print("Obwód prostokąta wynosi:", 2 * (a + b))
+    obwod_prostokata = 2 * (a + b)
+    print("Obwód prostokąta wynosi:", obwod_prostokata)
 
-elif choice == "8":
+elif choice == 8:
     a = float(input("Podaj pierwszy bok równoległoboku: "))
     b = float(input("Podaj drugi bok równoległoboku: "))
-    print("Obwód równoległoboku wynosi:", 2 * (a + b))
+    obwod_rownoleglogu = 2 * (a + b)
+    print("Obwód równoległoboku wynosi:", obwod_rownoleglogu)
 
-elif choice == "9":
+elif choice == 9:
     a = float(input("Podaj pierwszą podstawę trapezu: "))
     b = float(input("Podaj drugą podstawę trapezu: "))
     c = float(input("Podaj pierwszy bok trapezu: "))
     d = float(input("Podaj drugi bok trapezu: "))
-    print("Obwód trapezu wynosi:", a + b + c + d)
+    obwod_trapezu = a + b + c + d
+    print("Obwód trapezu wynosi:", obwod_trapezu)
 
-elif choice == "10":
+elif choice == 10:
     a = float(input("Podaj pierwszy bok trójkąta: "))
     b = float(input("Podaj drugi bok trójkąta: "))
     c = float(input("Podaj trzeci bok trójkąta: "))
-    print("Obwód trójkąta wynosi:", a + b + c)
+    obwod_trojkata = a + b + c
+    print("Obwód trójkąta wynosi:", obwod_trojkata)
 
-elif choice == "11":
+elif choice == 11:
+    a = float(input("Podaj bok trójkąta równobocznego: "))
+    obwod_trojkata_rownobocznego = 3 * a
+    print("Obwód trójkąta równobocznego wynosi:", obwod_trojkata_rownobocznego)
+
+elif choice == 12:
     a = float(input("Podaj bok sześcianu: "))
-    print("Objętość sześcianu wynosi:", a ** 3)
+    objetosc_szescianu = a ** 3
+    print("Objętość sześcianu wynosi:", objetosc_szescianu)
 
-elif choice == "12":
+elif choice == 13:
     a = float(input("Podaj pierwszy bok prostopadłościanu: "))
     b = float(input("Podaj drugi bok prostopadłościanu: "))
     c = float(input("Podaj trzeci bok prostopadłościanu: "))
-    print("Objętość prostopadłościanu wynosi:", a * b * c)
+    objetosc_prostopadloscianu = a * b * c
+    print("Objętość prostopadłościanu wynosi:", objetosc_prostopadloscianu)
 
-elif choice == "13":
+elif choice == 14:
+    Pp = float(input("Podaj pole podstawy graniastosłupa: "))
+    h = float(input("Podaj wysokość graniastosłupa: "))
+    objetosc_graniastoslupa = Pp * h
+    print("Objętość graniastosłupa wynosi:", objetosc_graniastoslupa)
+
+elif choice == 15:
+    Pp = float(input("Podaj pole podstawy ostrosłupa: "))
+    h = float(input("Podaj wysokość ostrosłupa: "))
+    objetosc_ostroslupa = (Pp * h) / 3
+    print("Objętość ostrosłupa wynosi:", objetosc_ostroslupa)
+
+elif choice == 16:
     a = float(input("Podaj bok sześcianu: "))
-    print("Pole powierzchni sześcianu wynosi:", 6 * a ** 2)
+    pole_szescianu = 6 * a ** 2
+    print("Pole powierzchni sześcianu wynosi:", pole_szescianu)
 
-elif choice == "14":
+elif choice == 17:
     a = float(input("Podaj pierwszy bok prostopadłościanu: "))
     b = float(input("Podaj drugi bok prostopadłościanu: "))
     c = float(input("Podaj trzeci bok prostopadłościanu: "))
-    print("Pole powierzchni prostopadłościanu wynosi:", 2 * (a * b + a * c + b * c))
+    pole_prostopadloscianu = 2 * (a * b + a * c + b * c)
+    print("Pole powierzchni prostopadłościanu wynosi:", pole_prostopadloscianu)
+
+elif choice == 18:
+    Pp = float(input("Podaj pole podstawy graniastosłupa: "))
+    Pb = float(input("Podaj pole powierzchni bocznej graniastosłupa: "))
+    pole_graniastoslupa = 2 * Pp + Pb
+    print("Pole powierzchni graniastosłupa wynosi:", pole_graniastoslupa)
+
+elif choice == 19:
+    Pp = float(input("Podaj pole podstawy ostrosłupa: "))
+    Pb = float(input("Podaj pole powierzchni bocznej ostrosłupa: "))
+    pole_ostroslupa = Pp + Pb
+    print("Pole powierzchni ostrosłupa wynosi:", pole_ostroslupa)
 
 else:
     print("Nie ma takiej opcji!")
