@@ -11,8 +11,8 @@ print("Wynik po negacji wartości logicznej:", wartosc_logiczna)
 # Zadanie 3
 liczba_calkowita = int(input("Podaj liczbę całkowitą: "))
 liczba_zmiennoprzecinkowa = float(input("Podaj liczbę zmiennoprzecinkową: "))
-wynik_3 = float(liczba_calkowita) + liczba_zmiennoprzecinkowa
-print("Wynik dodania:", wynik_3)
+wynik = float(liczba_calkowita) + liczba_zmiennoprzecinkowa
+print("Wynik dodania:", wynik)
 
 # Zadanie 4
 celsius = float(input("Podaj temperaturę w stopniach Celsjusza: "))
