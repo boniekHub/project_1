@@ -1,148 +1,149 @@
-print("Kalkulator geometryczny")
-print("Wybierz opcję:")
-print("1. Pole kwadratu")
-print("2. Pole prostokąta")
-print("3. Pole równoległoboku")
-print("4. Pole trapezu")
-print("5. Pole trójkąta")
-print("6. Obwód kwadratu")
-print("7. Obwód prostokąta")
-print("8. Obwód równoległoboku")
-print("9. Obwód trapezu")
-print("10. Obwód trójkąta")
-print("11. Obwód trójkąta równobocznego")
-print("12. Objętość sześcianu")
-print("13. Objętość prostopadłościanu")
-print("14. Objętość graniastosłupa")
-print("15. Objętość ostrosłupa")
-print("16. Pole powierzchni sześcianu")
-print("17. Pole powierzchni prostopadłościanu")
-print("18. Pole powierzchni graniastosłupa")
-print("19. Pole powierzchni ostrosłupa")
-
-choice = int(input("Podaj numer opcji: "))
+import time
 
 def get_positive_float(prompt):
-    value = float(input(prompt))
-    while value <= 0:
-        print("Wartość musi być dodatnia. Spróbuj ponownie.")
-        value = float(input(prompt))
-    return value
+    while True:
+        try:
+            value = float(input(prompt))
+            if value > 0:
+                return value
+            else:
+                print("Wartość musi być dodatnia.")
+        except ValueError:
+            print("Niepoprawna wartość. Wprowadź liczbę.")
 
-if choice == 1:
-    a = get_positive_float("Podaj bok kwadratu: ")
-    pole_kwadratu = a * a
-    print("Pole kwadratu wynosi:", pole_kwadratu)
+def is_valid_triangle(a, b, c):
+    return a + b > c and a + c > b and b + c > a
 
-elif choice == 2:
+def calculate_area_square():
+    side = get_positive_float("Podaj bok kwadratu: ")
+    return side * side
+
+def calculate_area_rectangle():
     a = get_positive_float("Podaj pierwszy bok prostokąta: ")
     b = get_positive_float("Podaj drugi bok prostokąta: ")
-    pole_prostokata = a * b
-    print("Pole prostokąta wynosi:", pole_prostokata)
+    return a * b
 
-elif choice == 3:
-    a = get_positive_float("Podaj podstawę równoległoboku: ")
-    h = get_positive_float("Podaj wysokość równoległoboku: ")
-    pole_rownoleglogu = a * h
-    print("Pole równoległoboku wynosi:", pole_rownoleglogu)
+def calculate_area_parallelogram():
+    base = get_positive_float("Podaj podstawę równoległoboku: ")
+    height = get_positive_float("Podaj wysokość równoległoboku: ")
+    return base * height
 
-elif choice == 4:
+def calculate_area_trapezoid():
     a = get_positive_float("Podaj długość pierwszej podstawy trapezu: ")
     b = get_positive_float("Podaj długość drugiej podstawy trapezu: ")
     h = get_positive_float("Podaj wysokość trapezu: ")
-    pole_trapezu = (a + b) * h / 2
-    print("Pole trapezu wynosi:", pole_trapezu)
+    return (a + b) * h / 2
 
-elif choice == 5:
-    a = float(input("Podaj długość podstawy trójkąta: "))
-    h = float(input("Podaj wysokość trójkąta: "))
-    pole_trojkata = (a * h) / 2
-    print("Pole trójkąta wynosi:", pole_trojkata)
+def calculate_area_triangle():
+    base = get_positive_float("Podaj długość podstawy trójkąta: ")
+    height = get_positive_float("Podaj wysokość trójkąta: ")
+    return (base * height) / 2
 
-elif choice == 6:
-    a = float(input("Podaj bok kwadratu: "))
-    obwod_kwadratu = 4 * a
-    print("Obwód kwadratu wynosi:", obwod_kwadratu)
+def calculate_perimeter_square():
+    side = get_positive_float("Podaj bok kwadratu: ")
+    return 4 * side
 
-elif choice == 7:
-    a = float(input("Podaj pierwszy bok prostokąta: "))
-    b = float(input("Podaj drugi bok prostokąta: "))
-    obwod_prostokata = 2 * (a + b)
-    print("Obwód prostokąta wynosi:", obwod_prostokata)
+def calculate_perimeter_rectangle():
+    a = get_positive_float("Podaj pierwszy bok prostokąta: ")
+    b = get_positive_float("Podaj drugi bok prostokąta: ")
+    return 2 * (a + b)
 
-elif choice == 8:
-    a = float(input("Podaj pierwszy bok równoległoboku: "))
-    b = float(input("Podaj drugi bok równoległoboku: "))
-    obwod_rownoleglogu = 2 * (a + b)
-    print("Obwód równoległoboku wynosi:", obwod_rownoleglogu)
+def calculate_perimeter_parallelogram():
+    a = get_positive_float("Podaj pierwszy bok równoległoboku: ")
+    b = get_positive_float("Podaj drugi bok równoległoboku: ")
+    return 2 * (a + b)
 
-elif choice == 9:
-    a = float(input("Podaj pierwszą podstawę trapezu: "))
-    b = float(input("Podaj drugą podstawę trapezu: "))
-    c = float(input("Podaj pierwszy bok trapezu: "))
-    d = float(input("Podaj drugi bok trapezu: "))
-    obwod_trapezu = a + b + c + d
-    print("Obwód trapezu wynosi:", obwod_trapezu)
+def calculate_perimeter_trapezoid():
+    a = get_positive_float("Podaj pierwszą podstawę trapezu: ")
+    b = get_positive_float("Podaj drugą podstawę trapezu: ")
+    c = get_positive_float("Podaj pierwszy bok trapezu: ")
+    d = get_positive_float("Podaj drugi bok trapezu: ")
+    return a + b + c + d
 
-elif choice == 10:
-    a = float(input("Podaj pierwszy bok trójkąta: "))
-    b = float(input("Podaj drugi bok trójkąta: "))
-    c = float(input("Podaj trzeci bok trójkąta: "))
-    obwod_trojkata = a + b + c
-    print("Obwód trójkąta wynosi:", obwod_trojkata)
+def calculate_perimeter_triangle():
+    a = get_positive_float("Podaj pierwszy bok trójkąta: ")
+    b = get_positive_float("Podaj drugi bok trójkąta: ")
+    c = get_positive_float("Podaj trzeci bok trójkąta: ")
+    if is_valid_triangle(a, b, c):
+        return a + b + c
+    else:
+        print("Boki nie tworzą prawidłowego trójkąta.")
+        return None
 
-elif choice == 11:
-    a = float(input("Podaj bok trójkąta równobocznego: "))
-    obwod_trojkata_rownobocznego = 3 * a
-    print("Obwód trójkąta równobocznego wynosi:", obwod_trojkata_rownobocznego)
+def calculate_volume_cube():
+    side = get_positive_float("Podaj bok sześcianu: ")
+    return side ** 3
 
-elif choice == 12:
-    a = float(input("Podaj bok sześcianu: "))
-    objetosc_szescianu = a ** 3
-    print("Objętość sześcianu wynosi:", objetosc_szescianu)
+def calculate_volume_rectangular_prism():
+    a = get_positive_float("Podaj pierwszy bok prostopadłościanu: ")
+    b = get_positive_float("Podaj drugi bok prostopadłościanu: ")
+    c = get_positive_float("Podaj trzeci bok prostopadłościanu: ")
+    return a * b * c
 
-elif choice == 13:
-    a = float(input("Podaj pierwszy bok prostopadłościanu: "))
-    b = float(input("Podaj drugi bok prostopadłościanu: "))
-    c = float(input("Podaj trzeci bok prostopadłościanu: "))
-    objetosc_prostopadloscianu = a * b * c
-    print("Objętość prostopadłościanu wynosi:", objetosc_prostopadloscianu)
+def calculate_area_cube():
+    side = get_positive_float("Podaj bok sześcianu: ")
+    return 6 * side ** 2
 
-elif choice == 14:
-    Pp = float(input("Podaj pole podstawy graniastosłupa: "))
-    h = float(input("Podaj wysokość graniastosłupa: "))
-    objetosc_graniastoslupa = Pp * h
-    print("Objętość graniastosłupa wynosi:", objetosc_graniastoslupa)
+def display_menu():
+    print("\nKalkulator geometryczny")
+    print("1. Pole kwadratu")
+    print("2. Pole prostokąta")
+    print("3. Pole równoległoboku")
+    print("4. Pole trapezu")
+    print("5. Pole trójkąta")
+    print("6. Obwód kwadratu")
+    print("7. Obwód prostokąta")
+    print("8. Obwód równoległoboku")
+    print("9. Obwód trapezu")
+    print("10. Obwód trójkąta")
+    print("11. Objętość sześcianu")
+    print("12. Objętość prostopadłościanu")
+    print("13. Pole powierzchni sześcianu")
+    print("14. Wyjście")
 
-elif choice == 15:
-    Pp = float(input("Podaj pole podstawy ostrosłupa: "))
-    h = float(input("Podaj wysokość ostrosłupa: "))
-    objetosc_ostroslupa = (Pp * h) / 3
-    print("Objętość ostrosłupa wynosi:", objetosc_ostroslupa)
+def handle_choice(choice):
+    operations = {
+        1: ("Pole kwadratu", calculate_area_square),
+        2: ("Pole prostokąta", calculate_area_rectangle),
+        3: ("Pole równoległoboku", calculate_area_parallelogram),
+        4: ("Pole trapezu", calculate_area_trapezoid),
+        5: ("Pole trójkąta", calculate_area_triangle),
+        6: ("Obwód kwadratu", calculate_perimeter_square),
+        7: ("Obwód prostokąta", calculate_perimeter_rectangle),
+        8: ("Obwód równoległoboku", calculate_perimeter_parallelogram),
+        9: ("Obwód trapezu", calculate_perimeter_trapezoid),
+        10: ("Obwód trójkąta", calculate_perimeter_triangle),
+        11: ("Objętość sześcianu", calculate_volume_cube),
+        12: ("Objętość prostopadłościanu", calculate_volume_rectangular_prism),
+        13: ("Pole powierzchni sześcianu", calculate_area_cube)
+    }
 
-elif choice == 16:
-    a = float(input("Podaj bok sześcianu: "))
-    pole_szescianu = 6 * a ** 2
-    print("Pole powierzchni sześcianu wynosi:", pole_szescianu)
+    if choice in operations:
+        name, func = operations[choice]
+        result = func()
+        if result is not None:
+            print(f"{name} wynosi: {result}")
+    elif choice == 14:
+        print("Koniec programu.")
+        return False
+    else:
+        print("Nie ma takiej opcji!")
 
-elif choice == 17:
-    a = float(input("Podaj pierwszy bok prostopadłościanu: "))
-    b = float(input("Podaj drugi bok prostopadłościanu: "))
-    c = float(input("Podaj trzeci bok prostopadłościanu: "))
-    pole_prostopadloscianu = 2 * (a * b + a * c + b * c)
-    print("Pole powierzchni prostopadłościanu wynosi:", pole_prostopadloscianu)
+    return True
 
-elif choice == 18:
-    Pp = float(input("Podaj pole podstawy graniastosłupa: "))
-    Pb = float(input("Podaj pole powierzchni bocznej graniastosłupa: "))
-    pole_graniastoslupa = 2 * Pp + Pb
-    print("Pole powierzchni graniastosłupa wynosi:", pole_graniastoslupa)
+def main():
+    while True:
+        display_menu()
+        try:
+            choice = int(input("Podaj numer opcji: "))
+        except ValueError:
+            print("Niepoprawna opcja. Podaj numer.")
+            continue
 
-elif choice == 19:
-    Pp = float(input("Podaj pole podstawy ostrosłupa: "))
-    Pb = float(input("Podaj pole powierzchni bocznej ostrosłupa: "))
-    pole_ostroslupa = Pp + Pb
-    print("Pole powierzchni ostrosłupa wynosi:", pole_ostroslupa)
+        if not handle_choice(choice):
+            break
 
-else:
-    print("Nie ma takiej opcji!")
+        time.sleep(3)
+
+if __name__ == "__main__":
+    main()

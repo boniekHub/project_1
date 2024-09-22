@@ -1,12 +1,29 @@
+import time
+
 def get_positive_float(prompt):
-    value = float(input(prompt))
-    while value <= 0:
-        print("Wartość musi być dodatnia. Spróbuj ponownie.")
-        value = float(input(prompt))
-    return value
+    while True:
+        try:
+            value = float(input(prompt))
+            if value > 0:
+                return value
+            else:
+                print("Wartość musi być dodatnia. Spróbuj ponownie.")
+        except ValueError:
+            print("To nie jest liczba. Spróbuj ponownie.")
 
 def is_valid_triangle(a, b, c):
     return a + b > c and a + c > b and b + c > a
+
+def get_choice():
+    while True:
+        try:
+            choice = int(input("Podaj numer opcji: "))
+            if 1 <= choice <= 20:
+                return choice
+            else:
+                print("Wybierz opcję od 1 do 20.")
+        except ValueError:
+            print("To nie jest poprawna liczba. Spróbuj ponownie.")
 
 while True:
     print("\nKalkulator geometryczny")
@@ -32,7 +49,7 @@ while True:
     print("19. Pole powierzchni ostrosłupa")
     print("20. Wyjście")
 
-    choice = int(input("Podaj numer opcji: "))
+    choice = get_choice()
 
     if choice == 1:
         a = get_positive_float("Podaj bok kwadratu: ")
@@ -62,10 +79,17 @@ while True:
             print("Pole trapezu wynosi:", pole_trapezu)
 
     elif choice == 5:
-        a = get_positive_float("Podaj długość podstawy trójkąta: ")
-        h = get_positive_float("Podaj wysokość trójkąta: ")
-        pole_trojkata = (a * h) / 2
-        print("Pole trójkąta wynosi:", pole_trojkata)
+        while True:
+            a = get_positive_float("Podaj pierwszy bok trójkąta: ")
+            b = get_positive_float("Podaj drugi bok trójkąta: ")
+            c = get_positive_float("Podaj trzeci bok trójkąta: ")
+            if is_valid_triangle(a, b, c):
+                s = (a + b + c) / 2
+                pole_trojkata = (s * (s - a) * (s - b) * (s - c)) ** 0.5
+                print("Pole trójkąta wynosi:", pole_trojkata)
+                break
+            else:
+                print("Podane wartości nie tworzą prawidłowego trójkąta. Spróbuj ponownie.")
 
     elif choice == 6:
         a = get_positive_float("Podaj bok kwadratu: ")
@@ -164,3 +188,5 @@ while True:
 
     else:
         print("Nie ma takiej opcji!")
+
+    time.sleep(3)
